@@ -1,0 +1,65 @@
+# =============================================================
+# Pipeline Configuration — Customer Purchase Prediction MLOps
+# =============================================================
+
+gcp:
+  project_id: "your-gcp-project-id"         # ← Replace this
+  region: "us-central1"
+  staging_bucket: "gs://your-bucket-name/mlops-staging"  # ← Replace this
+
+bigquery:
+  dataset: "ecommerce_data"
+  table: "customer_transactions"
+  query_limit: 100000                         # rows to pull for training
+
+pipeline:
+  display_name: "purchase-price-prediction-pipeline"
+  pipeline_root: "gs://your-bucket-name/pipeline-root"
+  schedule: "0 2 * * 1"                      # every Monday at 2 AM UTC
+
+training:
+  model_display_name: "purchase-predictor"
+  algorithm: "xgboost"
+  target_column: "highest_price_item_category"
+  test_size: 0.15
+  val_size: 0.15
+  random_state: 42
+  
+  hyperparameters:
+    n_estimators: 300
+    max_depth: 6
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+    min_child_weight: 3
+    gamma: 0.1
+    reg_alpha: 0.1
+    reg_lambda: 1.0
+
+  hyperparameter_tuning:
+    enabled: true
+    max_trials: 20
+    parallel_trials: 5
+    metric: "accuracy"
+    goal: "maximize"
+
+evaluation:
+  accuracy_threshold: 0.80          # minimum to proceed with deployment
+  f1_threshold: 0.78
+
+serving:
+  machine_type: "n1-standard-2"
+  min_replica_count: 1
+  max_replica_count: 3
+  traffic_split: 100                 # 100% to new model on deploy
+
+monitoring:
+  enabled: true
+  sampling_rate: 0.2
+  monitor_interval_hours: 24
+  drift_threshold: 0.3
+  alert_email: "your-email@example.com"   # ← Replace this
+
+docker:
+  base_image: "us-docker.pkg.dev/vertex-ai/training/xgboost-cpu.1-6:latest"
+  artifact_registry: "us-central1-docker.pkg.dev/your-project/mlops-repo"

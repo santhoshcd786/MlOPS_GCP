@@ -1,0 +1,19 @@
+{
+  "instances": [
+    {
+      "customer_age": 34,
+      "avg_purchase_value": 320.5,
+      "purchase_frequency": 12,
+      "days_since_last_purchase": 5,
+      "total_spend": 3846.0,
+      "max_single_purchase": 899.0,
+      "std_purchase_value": 210.3,
+      "browsing_time_mins": 45.0,
+      "cart_abandonment_rate": 0.15,
+      "loyalty_tier": "Gold",
+      "top_category": "Electronics",
+      "device_type": "Desktop",
+      "recency_bucket": "very_recent"
+    }
+  ]
+}

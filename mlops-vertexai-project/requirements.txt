@@ -1,0 +1,43 @@
+# =============================================================
+# Requirements — MLOps Vertex AI Purchase Prediction
+# =============================================================
+
+# ── Core ML ───────────────────────────────────────────────────
+numpy==1.24.4
+pandas==2.0.3
+scikit-learn==1.3.2
+xgboost==1.7.6
+
+# ── GCP / Vertex AI ───────────────────────────────────────────
+google-cloud-aiplatform==1.47.0
+google-cloud-bigquery==3.13.0
+google-cloud-storage==2.13.0
+google-cloud-pipeline-components==2.7.0
+db-dtypes==1.2.0
+pyarrow==14.0.2
+
+# ── Kubeflow Pipelines (KFP v2) ───────────────────────────────
+kfp==2.5.0
+kfp-pipeline-spec==0.3.0
+
+# ── Serving & API ─────────────────────────────────────────────
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.5.0
+
+# ── Utilities ─────────────────────────────────────────────────
+pyyaml==6.0.1
+python-dotenv==1.0.0
+tqdm==4.66.1
+joblib==1.3.2
+requests==2.31.0
+
+# ── Monitoring ────────────────────────────────────────────────
+evidently==0.4.12
+
+# ── Development / Testing ─────────────────────────────────────
+pytest==7.4.3
+pytest-cov==4.1.0
+flake8==6.1.0
+black==23.11.0
+isort==5.12.0

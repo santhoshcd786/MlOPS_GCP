@@ -231,15 +231,3 @@ Every push to `main`:
 4. Push and open a Pull Request
 
 ---
-
-## 📄 License
-
-MIT License — see [LICENSE](LICENSE) file.
-
----
-
-## 👤 Author
-
-**Your Name**  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue)](https://linkedin.com/in/yourprofile)
-[![GitHub](https://img.shields.io/badge/GitHub-black)](https://github.com/yourusername)
